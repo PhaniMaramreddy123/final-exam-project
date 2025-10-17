@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCU Campus Visits & Programs | Oklahoma City University</title>
+  <meta name="description" content="Plan your visit to Oklahoma City University. Meet our admissions team, explore campus maps, and discover programs that match your passion." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #004080;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #005fa3;
+      outline: none;
+    }
+
+    main.container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    section h2 {
+      color: #004080;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #0078D7;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    /* WCAG: Visible focus outlines for keyboard users */
+    button:focus,
+    a:focus {
+      outline: 3px solid #FFD700; /* gold focus outline */
+      outline-offset: 2px;
+    }
+
+    .contact-box {
+      background-color: #004d4d;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .contact-box button {
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #004080;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Plan Your Visit to Oklahoma City University</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="form.html">Account</a></li>
+        <li><a href="map.html">Explore Map</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Meet Our Campus Visit Manager</h2>
+      <img src="assets/grace.jpg" alt="Grace Helton, Campus Visit and Events Manager at OCU" />
+      <p><strong>Title:</strong> Campus Visit and Events Manager</p>
+      <p><strong>Email:</strong> ghelton@ocu.edu</p>
+      <p><strong>Phone:</strong> 405-208-5006</p>
+      <p><strong>Territory:</strong> All alternative events & campus visits</p>
+      <button onclick="window.location.href='visit.html'">Visit Page</button>
+    </section>
+
+    <section>
+      <h2>Contact Visitor Relations</h2>
+      <div class="contact-box">
+        <p><strong>Email:</strong> visitor@ocu.edu</p>
+        <p><strong>Phone:</strong> 405-208-5742, ext. 4 | 405-208-4349</p>
+        <button onclick="window.location.href='map.html'">View our map and get directions!</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Alumni Testimonial</h2>
+      <img src="assets/alumni.jpg" alt="OCU alum Katie Cris standing inside the university chapel" />
+      <blockquote>
+        "OCU taught me perseverance. Our professors teach us how to be adults with training wheels. They're ready to help you."
+      </blockquote>
+      <p>- Katie Cris, Flute Performance alum</p>
+    </section>
+
+    <section>
+      <h2>Explore Our Programs</h2>
+      <label for="program-search">Find your passion:</label>
+      <input type="text" id="program-search" placeholder="Search for a program" />
+      <button id="go-btn">GO!</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Oklahoma City University</p>
+  </footer>
+</body>
+</html>
+

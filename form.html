@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings - Form with Validation</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Specific styles for this form page */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f8fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .section-header {
+      background-color: #003366;
+      color: #fff;
+      padding: 10px 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .section-content {
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input[type="password"], input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #005f73;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-container">
+
+    <!-- Shipping Address Section -->
+    <section class="section">
+      <div class="section-header">Shipping Address</div>
+      <div class="section-content">
+        <p><strong>Name:</strong> Jordan Matthews</p>
+        <p><strong>Address:</strong> 1285 W Pine Ridge Dr, Tulsa, OK 74104</p>
+        <p><strong>Phone:</strong> (918) 654-2398</p>
+        <p><strong>Email:</strong> jordan.matthews@email.com</p>
+        <button id="address-btn">Change Address</button>
+      </div>
+    </section>
+
+    <!-- Password Change Section -->
+    <section class="section">
+      <div class="section-header">Change Password</div>
+      <div class="section-content">
+        <form id="passwordForm" novalidate>
+          <div class="form-group">
+            <label for="current">Current Password</label>
+            <input type="password" id="current" required>
+          </div>
+
+          <div class="form-group">
+            <label for="newpass">New Password</label>
+            <input type="password" id="newpass" required>
+            <p class="error" id="error-newpass"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm">Confirm Password</label>
+            <input type="password" id="confirm" required>
+            <p class="error" id="error-confirm"></p>
+          </div>
+
+          <button type="submit">Change Password</button>
+          <p id="success-msg" class="success" style="display:none;">✅ Password changed successfully!</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Password validation logic
+    document.getElementById("passwordForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const newPass = document.getElementById("newpass").value;
+      const confirmPass = document.getElementById("confirm").value;
+      const errorNew = document.getElementById("error-newpass");
+      const errorConfirm = document.getElementById("error-confirm");
+      const success = document.getElementById("success-msg");
+
+      errorNew.textContent = "";
+      errorConfirm.textContent = "";
+      success.style.display = "none";
+
+      // Pattern: at least 9 chars, 2 uppercase, 1 special symbol
+      const pattern = /^(?=(?:.*[A-Z]){2,})(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{9,}$/;
+
+      if (!pattern.test(newPass)) {
+        errorNew.textContent = "Password must have at least 9 characters, 2 uppercase letters, and 1 special symbol.";
+        return;
+      }
+
+      if (newPass !== confirmPass) {
+        errorConfirm.textContent = "Passwords do not match.";
+        return;
+      }
+
+      // If all valid
+      success.style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>

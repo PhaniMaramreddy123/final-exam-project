@@ -1,0 +1,126 @@
+:root{
+  --navy: #003366;
+  --teal: #005f73;
+  --green: #3a7d44;
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --container-width: 1100px;
+  --radius: 10px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:var(--bg);
+  color:#111;
+  line-height:1.5;
+}
+
+.container{
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:1rem;
+}
+
+/* Header */
+.site-header{
+  background:var(--navy);
+  color:white;
+  padding:1.25rem 0;
+  border-bottom:4px solid var(--green);
+  text-align:center;
+}
+.site-title{margin:0;font-size:1.6rem}
+.site-sub{margin:0.25rem 0 0;font-style:italic}
+
+/* Main grid layout */
+.main-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "staff alumni"
+    "visitor explore";
+  gap:1.25rem;
+  margin-top:1.5rem;
+}
+
+/* Cards */
+.staff-card{
+  grid-area:staff;
+  background:var(--card);
+  padding:1rem;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(2,6,23,0.06);
+  text-align:center;
+}
+.staff-photo{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+  margin:0 auto 1rem;
+}
+.staff-card .role{font-weight:600;color:var(--teal);}
+
+/* Alumni */
+.alumni{
+  grid-area:alumni;
+  background:var(--card);
+  padding:1rem;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(2,6,23,0.06);
+}
+.alumni-photo{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:0.75rem}
+.alumni blockquote{font-style:italic;margin:0.75rem 0;color:#333}
+.alumni-credit{font-weight:700;color:var(--navy)}
+
+/* Visitor relations (teal block) */
+.visitor-relations{
+  grid-area:visitor;
+  background:var(--teal);
+  color:white;
+  padding:1rem;
+  border-radius:var(--radius);
+  text-align:center;
+}
+.visitor-relations a{color:#dff5f4}
+
+/* Explore aside */
+.explore{
+  grid-area:explore;
+  background:var(--card);
+  padding:1rem;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(2,6,23,0.06);
+  text-align:center;
+}
+.search-form{display:flex;gap:0.5rem;margin-top:0.5rem}
+.search-form input{flex:1;padding:0.5rem;border-radius:8px;border:1px solid #cbd5e1}
+
+/* Buttons */
+.btn{
+  display:inline-block;text-decoration:none;padding:0.55rem 1rem;border-radius:8px;border:0;
+  font-weight:600;
+}
+.btn-green{background:var(--green);color:white}
+
+/* Footer */
+.site-footer{background:var(--navy);color:white;padding:1rem 0;margin-top:1.5rem;text-align:center}
+
+/* Small screens */
+@media (max-width:768px){
+  .main-grid{grid-template-columns:1fr;grid-template-areas:
+    "staff"
+    "alumni"
+    "visitor"
+    "explore";}
+  .search-form{flex-direction:row}
+}
+
+/* Utility — visually hidden label for accessibility */
+.visually-hidden{
+  position:absolute !important;
+  height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px;
+}
